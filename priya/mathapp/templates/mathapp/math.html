@@ -1,0 +1,75 @@
+<html>
+    <head>
+    <title>Body Mass Index</title>
+    <style>
+        body{
+            background-color:purple;
+            font-family:Arial,Helvetica, sans-serif;
+        }
+        .sum{
+            border:5px dotted purple;
+            width:500px;
+            margin:250px auto;
+            background-color:rgba(70,6,148,0,5);
+            color:yellow;
+            padding:20px 30px 30px 30px;
+            font-size:20px;
+        }
+        .sum h1,h3{
+            color:green;
+            text-align:center;
+        }
+        .sum h3{
+            font-size:30px;
+           }
+        .sum label{
+            display:block;
+        }
+        .input input{
+            border:3px dotted purple;
+            margin:10px 0px 15px;
+            font-size:30px;
+            width:100%;        
+        }
+        .btn{
+            text-align:center;
+            padding:auto;
+            margin-top:20px;
+            margin-bottom:10px;
+        }
+        button{
+            padding:20px;
+            background:red;
+        }
+    </style>
+    </head>
+<body>
+    <div class="sum">
+         <h1><b>BMI Calculator</b></h1>
+         <h3 >dhivya R (25011460)</h3>
+         <form method="post">
+         {% csrf_token %}
+         <div class="input">
+            <label for="Weight">Weight in kg:</label>
+            <input type="number" name="weight" required value="{{weight}}">
+        </div>
+        <div class="input">
+        <label for="Height">Height in cm:</label>
+        <input type="number" name="height" required value="{{height}}">
+    </div>
+        <div class="btn">
+            <button type="submit"><b>Calculate</b></button>
+        </div>
+        </form>
+        {% if bmi %}
+        
+        <div class="input">
+<label for="bmi">BMI: </label>
+            <input type="text" required value="{{bmi}}">
+        </div>
+        {% endif %} 
+    </div>
+</body>
+</html>
+
+
